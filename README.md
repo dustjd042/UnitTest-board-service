@@ -1,14 +1,23 @@
 # Board Service API
 > 게시판 플랫폼 RESTful API 서버입니다.
-
+> * 주요 기능
+>   * 회원
+>   * 게시판
+>   * 댓글
+>   * 알림
 ---
 
-## 📱 1. 주요 기능
-* **회원**
-* **게시판**
-* **댓글**
-* **알림**
-
+## 💡 1. 핵심 설계 및 문제 해결
+### 외부 의존성(데이터베이스, 외부 API)에 독립적인 구조 설계
+개발 과정에서 데이터베이스와 외부 API에 강하게 결합된 구조로 인해 테스트 작성이 어렵고 실행 속도가 느려지는 문제를 경험했습니다.  
+이를 해결하기 위해 외부 의존성을 제거하고, 테스트 가능한 구조로 개선했습니다.
+* Fake Repository 활용해 데이터베이스 없이도 도메인 로직을 검증
+  * [fake repository](https://github.com/dustjd042/UnitTest-board-service/tree/main/src/test/java/com/yeonseong/board/repository/fake)
+* Mock 객체를 활용해 외부 API 응답을 제어하고 다양한 케이스 테스트
+  * [Mock 테스트](https://github.com/dustjd042/UnitTest-board-service/blob/main/src/test/java/com/yeonseong/board/service/NoticeServiceTest.java)
+* 외부 API 호출을 인터페이스로 추상화하여 구현체 교체가 가능한 구조
+  * [인터페이스 구조](https://github.com/dustjd042/UnitTest-board-service/tree/main/src/main/java/com/yeonseong/board/service/send)
+    
 ---
 
 ## 🚀 2. 기술 스택
@@ -20,15 +29,7 @@
 
 ---
 
-## 💡 3. 핵심 설계 및 문제 해결
-### 외부 의존성(데이터베이스, 외부 API)에서 벗어난 독립적 개발
-* 외부 의존성 연결 없이 핵심 기능 독립적 개발
-* 외부 의존성 연결 없이 핵심 기능 단위 테스트
-* 향후 외부 의존성 변경 및 추가에 유연하게 대응
-
----
-
-## 📂 4. 프로젝트 구조
+## 📂 3. 프로젝트 구조
 
 ### **Project Structure**
 ```plaintext
