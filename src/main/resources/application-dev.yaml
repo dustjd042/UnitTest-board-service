@@ -1,0 +1,24 @@
+logging:
+  level.root: INFO
+
+spring:
+  mail.host: smtp.gmail.com
+  mail.port: 587
+  mail.username: ${MAIL_USERNAME}
+  mail.password: ${MAIL_PASSWORD}
+  mail.properties.mail.smtp.auth: true
+  mail.properties.mail.smtp.timeout: 5000
+  mail.properties.mail.smtp.starttls.enable: true
+  async.executor.core-size: 5
+  async.executor.max-size: 10
+  async.executor.queue-capacity: 100
+  async.executor.thread-name-prefix: "AsyncExecutor-"
+
+slack:
+  webhook-url: ${SLACK_WEBHOOK_URL}
+
+jwt:
+  key: u50re+mttOSNNdAPFToCEh1sWBebObmUNRZFNYRrlIwLLWADR0ZSmE4IixNJFLJ9BuTVx6VhCIEJNJHIV++/VQ==
+  token.access-expire: 1800000      # 30분 (ms 단위)
+  token.refresh-expire: 1209600000  # 14일 (ms 단위)
+  token.refresh-expire-days: 14     # 14일 (일 단위)

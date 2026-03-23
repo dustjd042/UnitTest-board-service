@@ -1,0 +1,13 @@
+spring:
+  application.name: board-service
+  profiles.active: dev
+  mvc.pathmatch.matching-strategy: ant_path_matcher
+  web.resources.add-mappings: false
+  mvc.dispatch-options-request: false
+  mvc.throw-exception-if-no-handler-found: true
+  servlet.encoding.charset: UTF-8
+  servlet.encoding.force: true
+
+server:
+  port: 8080
+  error.whitelabel.enabled: false
